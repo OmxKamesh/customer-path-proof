@@ -75,3 +75,11 @@ npm test
 Unit tests run by default. For actual browser integration, set `CPP_BROWSER_TESTS=1` and run `npm test` (PowerShell: `$env:CPP_BROWSER_TESTS='1'`). These tests exercise the broken write, repaired write, denied write, PNG evidence, and protection against overwriting prior evidence. Browser integration is skipped unless explicitly enabled; `npm run demo` always uses a real browser.
 
 Playwright already provides browser automation and traces; [Checkly](https://www.checklyhq.com/docs/detect/synthetic-monitoring/playwright-checks/overview/) provides production monitoring, and [Browser Use](https://github.com/browser-use/browser-use) provides AI browser agents. This project focuses on small, reviewable customer-outcome contracts and the gap between an apparent UI success and independently observable saved state. It builds on [Playwright](https://playwright.dev/docs/intro), rather than replacing it.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
+
+---
+
+Built by Kamesh Jindal at OMX Digital (https://omxdigital.ai). Part of the OMX Claude Skills toolkit (https://github.com/OmxKamesh/claude-skills-toolkit). Need this set up for your business? kamesh@omxdigital.ai

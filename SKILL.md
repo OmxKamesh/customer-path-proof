@@ -1,6 +1,6 @@
 ---
 name: customer-path-proof
-description: Test an authorized local or staging customer journey with deterministic browser steps and independent saved-state checks. Diagnose false success messages using screenshots and observed network evidence.
+description: Test an authorized local or staging customer journey with browser steps and independent saved-state checks. Diagnose false success messages with screenshots and network evidence.
 ---
 
 Use this skill when the user needs evidence that a specific customer action delivered its promised result. Read [README.md](README.md) for setup and the contract format; start from [demo/journey.json](demo/journey.json).

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Prove that a customer journey delivered its promised outcome, not just a success message.",
   "author": "Kamesh Jindal / OMX Digital",
+  "license": "MIT",
   "engines": {"node": ">=20"},
   "dependencies": {"playwright": "1.62.1"},
   "scripts": {"test": "node --test", "demo": "node demo/replay.cjs"}
