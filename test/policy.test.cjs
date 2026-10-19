@@ -1,0 +1,14 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const {validate,permitted,html}=require('../scripts/run.cjs');
+const contract=require('../demo/journey.json');
+const origin='http://127.0.0.1:3000';
+test('accepts the complete demo outcome contract',()=>assert.equal(validate(contract,origin),contract));
+test('requires an independent saved-state outcome',()=>assert.throws(()=>validate({...contract,steps:contract.steps.slice(0,4)},origin),/saved/));
+test('rejects cross-origin navigation and protocol-relative paths',()=>{for(const p of ['https://example.com','//example.com','/\\example.com'])assert.throws(()=>validate({...contract,steps:[{id:'escape',action:'open',path:p},contract.steps[4]]},origin));});
+test('rejects duplicate IDs',()=>assert.throws(()=>validate({...contract,steps:[contract.steps[4],contract.steps[4]]},origin),/unique/));
+test('rejects unsupported script execution actions',()=>assert.throws(()=>validate({...contract,steps:[{id:'js',action:'evaluate'}]},origin),/Unknown/));
+test('origin has no credentials or path',()=>{for(const o of ['file:///tmp','https://me:secret@example.com','https://example.com/path'])assert.throws(()=>validate(contract,o));});
+test('write permission matches exact method and path on exact origin',()=>{assert.ok(permitted(origin+'/api/feedback','POST',origin,['POST:/api/feedback']));for(const [url,method] of [[origin+'/api/feedback/','POST'],[origin+'/api/feedback','DELETE'],['https://example.com/api/feedback','POST']])assert.equal(permitted(url,method,origin,['POST:/api/feedback']),false);});
+test('POST is blocked by default and reads remain available',()=>{assert.equal(permitted(origin+'/api/feedback','POST',origin),false);assert.equal(permitted(origin+'/api/feedback','GET',origin),true);});
+test('report escapes malicious page content',()=>{const r={name:'<script>alert(1)</script>',status:'failed',firstDivergence:'<img>',steps:[{id:'x',status:'failed',detail:'</pre><script>bad</script>'}],events:[]};const out=html(r);assert.ok(!out.includes('<script>'));assert.ok(out.includes('&lt;script&gt;'));});

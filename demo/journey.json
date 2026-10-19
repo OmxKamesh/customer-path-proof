@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "name": "Feedback must be saved, not merely acknowledged",
+  "steps": [
+    {"id":"visit","action":"open","path":"/"},
+    {"id":"write-feedback","action":"fill","selector":"#idea","value":"Improve onboarding"},
+    {"id":"send-feedback","action":"click","selector":"#send"},
+    {"id":"success-message","action":"visible","selector":"#status","value":"Thanks! Your feedback was saved."},
+    {"id":"feedback-persisted","action":"saved","path":"/api/feedback","field":"items","equals":["Improve onboarding"]}
+  ]
+}

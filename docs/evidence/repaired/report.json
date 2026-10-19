@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "name": "Feedback must be saved, not merely acknowledged",
+  "origin": "http://127.0.0.1:55167",
+  "startedAt": "2026-10-19T18:38:16.672Z",
+  "status": "passed",
+  "firstDivergence": null,
+  "steps": [
+    {
+      "id": "visit",
+      "action": "open",
+      "status": "passed",
+      "screenshot": "step-01.png"
+    },
+    {
+      "id": "write-feedback",
+      "action": "fill",
+      "status": "passed",
+      "screenshot": "step-02.png"
+    },
+    {
+      "id": "send-feedback",
+      "action": "click",
+      "status": "passed",
+      "screenshot": "step-03.png"
+    },
+    {
+      "id": "success-message",
+      "action": "visible",
+      "status": "passed",
+      "screenshot": "step-04.png"
+    },
+    {
+      "id": "feedback-persisted",
+      "action": "saved",
+      "status": "passed",
+      "detail": "{\"httpStatus\":200,\"field\":\"items\",\"expected\":[\"Improve onboarding\"],\"observed\":[\"Improve onboarding\"]}",
+      "screenshot": "step-05.png"
+    }
+  ],
+  "events": [],
+  "policy": {
+    "writes": [
+      "POST:/api/feedback"
+    ],
+    "serviceWorkers": "blocked",
+    "webSockets": "blocked"
+  },
+  "finishedAt": "2026-10-19T18:38:18.372Z",
+  "unexecuted": []
+}

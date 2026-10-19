@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Customer Path Proof</title><style>body{font:16px system-ui;background:#0c1425;color:#e8eefb;max-width:1000px;margin:40px auto;padding:24px}h1{font-size:44px}header,p{color:#aebdd7}strong{color:#63dfbe}article{background:#152239;padding:20px;margin:14px 0;border-radius:12px}img{width:100%;border-radius:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#63dfbe}</style><header>OMX DIGITAL / KAMESH JINDAL</header><h1>Customer Path Proof</h1><p>Feedback must be saved, not merely acknowledged</p><h2>FAILED</h2><p>First divergence: feedback-persisted</p><article><strong>visit · passed</strong><pre></pre><a href="step-01.png"><img src="step-01.png" alt="Browser evidence for visit"></a></article><article><strong>write-feedback · passed</strong><pre></pre><a href="step-02.png"><img src="step-02.png" alt="Browser evidence for write-feedback"></a></article><article><strong>send-feedback · passed</strong><pre></pre><a href="step-03.png"><img src="step-03.png" alt="Browser evidence for send-feedback"></a></article><article><strong>success-message · passed</strong><pre></pre><a href="step-04.png"><img src="step-04.png" alt="Browser evidence for success-message"></a></article><article><strong>feedback-persisted · failed</strong><pre>Persisted outcome differs. {&quot;httpStatus&quot;:200,&quot;field&quot;:&quot;items&quot;,&quot;expected&quot;:[&quot;Improve onboarding&quot;],&quot;observed&quot;:[]}</pre><a href="step-05.png"><img src="step-05.png" alt="Browser evidence for feedback-persisted"></a></article><h2>Observed network and console events</h2><pre>[
+  {
+    &quot;type&quot;: &quot;http-error&quot;,
+    &quot;status&quot;: 503,
+    &quot;url&quot;: &quot;http://127.0.0.1:50933/api/feedback&quot;
+  },
+  {
+    &quot;type&quot;: &quot;console-error&quot;,
+    &quot;text&quot;: &quot;Failed to load resource: the server responded with a status of 503 (Service Unavailable)&quot;
+  },
+  {
+    &quot;type&quot;: &quot;console-error&quot;,
+    &quot;text&quot;: &quot;Demo storage write rejected; UI ignores response status&quot;
+  }
+]</pre><p>Only the declared journey was checked. Passing does not establish overall application correctness. Screenshots can contain sensitive data.</p>

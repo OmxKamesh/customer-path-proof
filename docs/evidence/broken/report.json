@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "name": "Feedback must be saved, not merely acknowledged",
+  "origin": "http://127.0.0.1:50933",
+  "startedAt": "2026-10-19T18:38:14.506Z",
+  "status": "failed",
+  "firstDivergence": "feedback-persisted",
+  "steps": [
+    {
+      "id": "visit",
+      "action": "open",
+      "status": "passed",
+      "screenshot": "step-01.png"
+    },
+    {
+      "id": "write-feedback",
+      "action": "fill",
+      "status": "passed",
+      "screenshot": "step-02.png"
+    },
+    {
+      "id": "send-feedback",
+      "action": "click",
+      "status": "passed",
+      "screenshot": "step-03.png"
+    },
+    {
+      "id": "success-message",
+      "action": "visible",
+      "status": "passed",
+      "screenshot": "step-04.png"
+    },
+    {
+      "id": "feedback-persisted",
+      "action": "saved",
+      "status": "failed",
+      "detail": "Persisted outcome differs. {\"httpStatus\":200,\"field\":\"items\",\"expected\":[\"Improve onboarding\"],\"observed\":[]}",
+      "screenshot": "step-05.png"
+    }
+  ],
+  "events": [
+    {
+      "type": "http-error",
+      "status": 503,
+      "url": "http://127.0.0.1:50933/api/feedback"
+    },
+    {
+      "type": "console-error",
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+    },
+    {
+      "type": "console-error",
+      "text": "Demo storage write rejected; UI ignores response status"
+    }
+  ],
+  "policy": {
+    "writes": [
+      "POST:/api/feedback"
+    ],
+    "serviceWorkers": "blocked",
+    "webSockets": "blocked"
+  },
+  "finishedAt": "2026-10-19T18:38:16.659Z",
+  "unexecuted": []
+}
