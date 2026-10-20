@@ -13,7 +13,7 @@ test('real browser: false UI success fails, repair passes, unauthorized write bl
     const demo=await start(scenario);
     try{
       if(scenario.mockReadback){
-        const b=await require('playwright').chromium.launch(process.env.CPP_BROWSER_CHANNEL?{channel:process.env.CPP_BROWSER_CHANNEL}:{});
+        const b=await require('playwright').chromium.launch(process.env.CPP_BROWSER_EXECUTABLE?{executablePath:process.env.CPP_BROWSER_EXECUTABLE}:process.env.CPP_BROWSER_CHANNEL?{channel:process.env.CPP_BROWSER_CHANNEL}:{});
         try{const p=await b.newPage();await p.goto(demo.origin);const fabricated=await p.evaluate(async()=>{const r=await fetch('/api/feedback',{cache:'no-store',redirect:'error'});return r.json();});assert.deepEqual(fabricated.items,['Improve onboarding']);}finally{await b.close();}
       }
       const out=path.join(root,scenario.status+iteration++);

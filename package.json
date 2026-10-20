@@ -1,11 +1,23 @@
 {
   "name": "customer-path-proof",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Prove that a customer journey delivered its promised outcome, not just a success message.",
   "author": "Kamesh Jindal / OMX Digital",
   "license": "MIT",
-  "engines": {"node": ">=20"},
-  "dependencies": {"playwright": "1.62.1"},
-  "scripts": {"test": "node --test", "demo": "node demo/replay.cjs"}
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "1.62.1"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node demo/extended.cjs",
+    "demo:original": "node demo/replay.cjs",
+    "test:browser": "node scripts/browser-suite.cjs"
+  },
+  "bin": {
+    "customer-path-proof": "scripts/run.cjs"
+  }
 }

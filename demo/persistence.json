@@ -1,0 +1,15 @@
+{
+  "version":1,
+  "name":"Feedback survives a refresh and a clean browser session",
+  "steps":[
+    {"id":"visit","action":"open","path":"/"},
+    {"id":"write","action":"fill","selector":"#idea","value":"Improve onboarding"},
+    {"id":"send","action":"click","selector":"#send"},
+    {"id":"confirmation","action":"visible","selector":"#status","value":"Thanks! Your feedback was saved."},
+    {"id":"initial-readback","action":"saved","adapter":"json-field","path":"/api/feedback","field":"items","equals":["Improve onboarding"]},
+    {"id":"refresh","action":"refresh"},
+    {"id":"refresh-readback","action":"saved","adapter":"json-field","path":"/api/feedback","field":"items","equals":["Improve onboarding"]},
+    {"id":"clean-session","action":"newSession","path":"/"},
+    {"id":"new-session-readback","action":"saved","adapter":"json-field","path":"/api/feedback","field":"items","equals":["Improve onboarding"]}
+  ]
+}

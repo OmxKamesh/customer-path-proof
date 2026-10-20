@@ -1,0 +1,2 @@
+Customer Path Proof synthetic upload fixture.
+No customer records or secrets.

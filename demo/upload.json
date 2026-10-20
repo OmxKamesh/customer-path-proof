@@ -1,0 +1,12 @@
+{
+  "version":1,"name":"Uploaded attachment can be read back byte for byte",
+  "steps":[
+    {"id":"visit","action":"open","path":"/"},
+    {"id":"select-fixture","action":"upload","selector":"#attachment","fixture":"sample"},
+    {"id":"submit-upload","action":"click","selector":"#upload"},
+    {"id":"confirmation","action":"visible","selector":"#upload-status","value":"File saved."},
+    {"id":"refresh","action":"refresh"},
+    {"id":"clean-session","action":"newSession","path":"/"},
+    {"id":"uploaded-bytes","action":"fileSaved","adapter":"bytes-sha256","path":"/api/upload","fixture":"sample"}
+  ]
+}
